@@ -1,0 +1,22 @@
+{{ block title }}Voici le résultat de ce tour {{ endblock }}
+{{ block content }}
+<br><br>
+<p> label :  {{participant.label}} </p>
+<p> ID dans le groupe :  {{player.id_in_group}} </p>
+
+<p> Vous remportez au tour {{player.round_number}} : {{player.payoff}} </p>
+{{ next_button }}
+<style>
+h4 {
+font-size: 1.2em;
+margin-bottom:50px;
+}
+
+p{
+font-size: 1em;
+color:black;
+margin-bottom:50px;
+}
+
+</style>
+{{ endblock }}
