@@ -2,9 +2,19 @@
 {{ block content }}
 <br><br>
 <p> label :  {{participant.label}} </p>
-<p> ID dans le groupe :  {{player.id_in_group}} </p>
+<!--<p> ID dans le groupe :  {{player.id_in_group}} </p>-->
 
-<p> Vous remportez au tour {{player.round_number}} : {{player.payoff}} </p>
+<p> Au tour {{player.round_number}} vous remportez : {{player.payoff}}
+    <br> <br>
+    <br>En tout vous possedez : {{player.Gains}}
+    <br> <br> Détail des tours :
+    <br> Tour 1 : {{player.pr1}}
+    <br> Tour 2 : {{player.pr2}}
+    <br> Tour 3 : {{player.pr3}}
+    <br> Tour 4 : {{player.pr4}}
+    <br> Tour 5 : {{player.pr5}}
+</p>
+
 {{ next_button }}
 <style>
 h4 {
