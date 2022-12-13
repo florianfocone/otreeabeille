@@ -1,12 +1,21 @@
-{{ block title }}{{ endblock }}
+{{ block title }}Avant de se quitter{{ endblock }}
 {{ block content }}
 
     <p>
-        Merci de votre participation !
+        <br>Si vous êtes tiré au sort, nous vous le ferons savoir dans les prochains jours et
+        <br>vous enverrons dans les trois prochaines semaines vos gains sous forme de bons Illicado.
+
+        <br><br>Si vous souhaitez ajouter des commentaires, n'hésitez pas à utiliser l'emplacement ci-dessous.
+{{ formfield 'free_text'}}
+
+        <br><br>Souhaitez vous recevoir les résultats de cette étude.
+{{ formfield 'recevoirinfo'}}
+        <br>
+
     </p>
 
 
-
+{{ next_button }}
 
 {{ endblock }}
 

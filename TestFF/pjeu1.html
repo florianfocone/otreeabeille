@@ -1,16 +1,35 @@
 {{ block title }}Jeux stratégiques - tour {{player.round_number}} {{ endblock }}
 {{ block content }}
 
+<p>
+Vous allez participer à  un jeu qui se joue à deux joueurs.
 
-<p>Rappel :
-<br> Si vous et l'autre personne donnez les 10000€ : vous gagnez chacun 20 000€.
-<br> Si vous et l'autre personne gardez les 10000€ : vous gagnez chacun 10 000€.
-<br> Si vous gardez 10000€ et que l'autre personne donne 10000€ : vous gagnez 30000€ et l'autre personne gagne 0€.
- <br> Si vous donnez 10000€ et que l'autre personne garde 10000€ : vous gagnez 0€ et l'autre personne gagne 30000€.
- </p>
+<br><br>[il faudra avoir à l'avance les adresses mails pour savoir si les participants sont dans la meme filiere ou non ]
+<br>Tout comme vous, l'autre joueur appartient aussi au secteur de la production horticole.
+<br>Vous êtes donc tous les deux dans le même secteur.
+
+<br><br>Dans ce jeu, vous allez donc jouer avec une autre personne issue du secteur de la production <br>mais vous ne connaissez pas son identité, et avec laquelle vous ne pourrez pas communiquer.
+<br><b>Vous allez jouer avec ce même joueur de votre secteur pendant les 5 jours de ce jeu.</b>
+<br>Vous aurez 50€ chaque jour, sous condition d’y participer.
+<br>A la fin de la semaine, nous tirerons au sort au hasard une paire (parmi les 15 paires) <br>parmi chacun des trois groupes de joueurs. Les 2 joueurs de la paire tirée au sort gagneront la somme moyenne des gains des 5 jours.
+<br>Les règles du jeu sont les suivantes.
+
+<br><br>Chacun garde ou donne à l'autre les 50€, sachant que les sommes données sont multipliées par 2.
+<br>Donc, si vous gardez, vous avez 50€, et si vous donnez, l'autre personne a 100€.
+<br>Si les 2 donnent ce montant, les 2 ont chacun 100€.
+<br>Si les 2 gardent ce montant, les 2 ont chacun 50€.
+<br>Sinon, celui qui garde ce montant a 150€ et celui qui donne ce montant a 0 €.
+<br>[peu lisible j'ai ajouté l'image il faudrait mettre clairement les 4 cas à mon avis]
+</p>
+<img src="{% static 'sources/touscas.png' %}"/>
+
+
 
 <h4> Que faites-vous ?  </h4>
-{{ formfield 'defect1'}}
+{{ formfield 'defect'}}
+
+<h4> Que pensez-vous que votre partenaire a décidé ?   </h4>
+{{ formfield 'pensee'}}
 
 
 <p>Vous êtes au tour : {{player.round_number}}</p>

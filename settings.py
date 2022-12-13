@@ -4,9 +4,9 @@ import os
 DEBUG = os.getenv('DEBUG', False) == 'True'  #get rid of debug panel
 
 OTREE_PRODUCTION = 1;
-#AUTH_LEVEL = 'STUDY'
-#ADMIN_USERNAME = 'p2ac'
-#ADMIN_PASSWORD = 'p2ac'
+AUTH_LEVEL = 'STUDY'
+ADMIN_USERNAME = 'p2ac'
+ADMIN_PASSWORD = 'p2ac'
 DEMO_PAGE_INTRO_HTML = 'test'
 
 SECRET_KEY = '1785114498942'
@@ -16,7 +16,7 @@ INSTALLED_APPS = ['otree']
 SESSION_CONFIGS = [
         dict(
          name='Abeille',
-         app_sequence=['TestFF', 'payment_info'],
+         app_sequence=['intro','TestFF', 'payment_info'],
          num_demo_participants=4 #participant en tout
             )
 ]
@@ -36,7 +36,7 @@ LANGUAGE_CODE = 'fr'
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'EUR'
-USE_POINTS = True
+USE_POINTS = False
 
 ROOMS = [
     dict(

@@ -5,10 +5,10 @@ class Constants(BaseConstants):  # des constantes https://otree.readthedocs.io/e
     name_in_url = 'TestFF'
     num_rounds = 5;
     players_per_group = 2  # participant par groupe
-    payoff_both_defect = 10000;
-    payoff_high = 30000;
+    payoff_both_defect = 50;
+    payoff_high = 150;
     payoff_low = 0;
-    payoff_both_cooperate = 20000;
+    payoff_both_cooperate = 100;
 
 
 # https://otree.readthedocs.io/en/latest/rounds.html
@@ -31,12 +31,20 @@ class Player(BasePlayer):  # player model
     pr5 = models.CurrencyField(initial=0)
     Gains = models.CurrencyField(initial=0)
 
-    defect1 = models.BooleanField(
+    defect = models.BooleanField(
         label='Une seule réponse possible.',
-        choices=[[True, 'Garder les 10000€'], [False, 'Donner les 10000€']],
+        choices=[[True, 'Garder les 50€'], [False, 'Donner les 50€']],
         widget=widgets.RadioSelect,
         blank=False,
         initial=None
+    )
+
+    pensee = models.StringField(
+    choices=[['garde', 'Il garde les 50€'], ['donne', 'Il donne les 50€']],
+    label='Une seule réponse possible.',
+    widget=widgets.RadioSelect,
+    blank=False,
+   # initial='garde'
     )
 
     # FUNCTIONS
@@ -46,15 +54,15 @@ def resultatcoop(group):
     player_Lists = group.get_players()
     player1 = player_Lists[0]
     player2 = player_Lists[1]
-    if player1.defect1:
-        if player2.defect1:
+    if player1.defect:
+        if player2.defect:
             player1.payoff = Constants.payoff_both_defect
             player2.payoff = Constants.payoff_both_defect
         else:
             player1.payoff = Constants.payoff_high
             player2.payoff = Constants.payoff_low
     else:
-        if player2.defect1:
+        if player2.defect:
             player2.payoff = Constants.payoff_high
             player1.payoff = Constants.payoff_low
         else:
@@ -88,7 +96,8 @@ def creating_session(subsession):
 
 class pjeu1(Page):
     form_model = 'player'
-    form_fields = ['defect1']
+    form_fields = ['defect','pensee']
+
 
 
 class ResultsWaitPage(WaitPage):

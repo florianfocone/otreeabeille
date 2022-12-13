@@ -23,16 +23,27 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    free_text = models.StringField(
+        label='''optionnel''',
+        blank=True)
+
+    recevoirinfo = models.BooleanField(blank=True, initial=True)
 
 
 # FUNCTIONS
 # PAGES
 class PaymentInfo(Page):
+    form_model = 'player'
+    form_fields = ['free_text','recevoirinfo']
+
+
     @staticmethod
     def vars_for_template(player: Player):
         participant = player.participant
         return dict(redemption_code=participant.label or participant.code)
 
 
-page_sequence = [PaymentInfo]
+class merci(Page):
+    form_model = 'player'
+
+page_sequence = [PaymentInfo,merci]
